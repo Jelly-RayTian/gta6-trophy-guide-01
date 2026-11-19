@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Legend — GTA 6 Trophy Guide &amp; Tracker</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand"><span class="sun"></span><div><h1>Leonida Legend</h1><p>GTA 6 trophy guide &amp; tracker · 55 PS5 trophies · works offline</p></div></div>
+  <nav class="tabs" role="tablist">
+    <button data-view="trophies" class="on">Trophies</button>
+    <button data-view="roadmap">Roadmap</button>
+    <button data-view="missables">Missables</button>
+  </nav>
+</header>
+<section class="summary" id="summary" aria-live="polite"></section>
+<main>
+  <section id="view-trophies">
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search name, description or guide…" aria-label="Search trophies">
+      <select id="f-kind" aria-label="Kind"><option value="all">All kinds</option><option value="story">Story</option><option value="missable">Missable</option><option value="collectibles">Collectibles</option><option value="activities">Activities</option><option value="online">Online</option></select>
+      <select id="f-grade" aria-label="Grade"><option value="all">All grades</option><option>platinum</option><option>gold</option><option>silver</option><option>bronze</option></select>
+      <select id="f-state" aria-label="Earned state"><option value="all">Earned + unearned</option><option value="todo">Not earned</option><option value="done">Earned</option></select>
+      <label class="chk"><input type="checkbox" id="spoiler"> Hide story spoilers</label>
+      <span class="count" id="shown"></span>
+    </div>
+    <div class="layout"><ul id="list" class="list"></ul><aside id="detail" class="detail"></aside></div>
+  </section>
+  <section id="view-roadmap" hidden></section>
+  <section id="view-missables" hidden></section>
+</main>
+<footer>
+  <button id="export">Export progress</button>
+  <label class="btn">Import progress<input type="file" id="import" accept="application/json" hidden></label>
+  <button id="reset" class="ghost">Reset</button>
+  <span id="msg" role="status"></span>
+  <span class="fine">Names, descriptions and grades: official PS5 list via Exophase &amp; PSNProfiles. Guides are original, based on those descriptions. Unofficial fan tool.</span>
+</footer>
+<script type="module" src="src/app.js"></script>
+</body>
+</html>
