@@ -10,13 +10,66 @@ import { buildDossier } from './vendor/makefun-frontend.ts';
 const here = fileURLToPath(new URL('.', import.meta.url));
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? '/output';
 
-// Refuse to hand in a trophy file that lost a guide or a source: a cheap guard before copying anything.
-const data = JSON.parse(readFileSync(join(here, 'app', 'data', 'trophies.json'), 'utf8'));
-const bad = data.trophies.filter((t: { guide?: string; source?: string }) => !t.guide?.trim() || !t.source?.trim());
-if (data.trophies.length !== 55 || bad.length > 0) {
-  console.error(`trophies.json: expected 55 guided, sourced trophies, got ${data.trophies.length} with ${bad.length} lacking one`);
+interface Trophy {
+  id: number;
+  name: string;
+  description: string;
+  grade: string;
+  guide: string;
+  source: string;
+  missable?: boolean;
+}
+
+const GRADES = ['platinum', 'gold', 'silver', 'bronze'];
+
+function fail(message: string): never {
+  console.error(`data check failed: ${message}`);
   process.exit(1);
 }
+
+// The data files are authored by hand, so refuse to hand in anything missing or malformed before copying a byte.
+function readData(file: string): any {
+  const path = join(here, 'app', 'data', file);
+  if (!existsSync(path)) fail(`app/data/${file} is missing`);
+  try {
+    return JSON.parse(readFileSync(path, 'utf8'));
+  } catch (err) {
+    return fail(`app/data/${file} is not valid JSON (${(err as Error).message})`);
+  }
+}
+
+const data = readData('trophies.json');
+const roadmap = readData('roadmap.json');
+if (!Array.isArray(data.trophies)) fail('trophies.json has no "trophies" array');
+if (!Array.isArray(roadmap.stages)) fail('roadmap.json has no "stages" array');
+
+const trophies: Trophy[] = data.trophies;
+const names = new Set<string>();
+trophies.forEach((t, i) => {
+  const label = `trophies.json entry ${i + 1}${typeof t?.name === 'string' ? ` (${t.name})` : ''}`;
+  for (const field of ['name', 'description', 'grade', 'guide', 'source'] as const) {
+    if (typeof t?.[field] !== 'string' || t[field].trim() === '') fail(`${label} lacks a ${field}`);
+  }
+  if (!GRADES.includes(t.grade)) fail(`${label} has unknown grade "${t.grade}"`);
+  if (names.has(t.name)) fail(`${label} duplicates a trophy name`);
+  names.add(t.name);
+});
+if (trophies.length !== 55) fail(`expected 55 trophies, got ${trophies.length}`);
+
+for (const stage of roadmap.stages) {
+  for (const name of stage.trophies ?? []) {
+    if (!names.has(name)) fail(`roadmap stage "${stage.title}" lists "${name}", which is not a trophy`);
+  }
+}
+
+// Summary of what is being handed in: totals first, then each grade in tracker order (missable noted only when present).
+const missableTotal = trophies.filter((t) => t.missable).length;
+const byGrade = GRADES.map((g) => {
+  const all = trophies.filter((t) => t.grade === g);
+  const missable = all.filter((t) => t.missable).length;
+  return `${g} ${all.length}${missable > 0 ? ` (${missable} missable)` : ''}`;
+}).join(', ');
+const summary = `${trophies.length} trophies, ${missableTotal} missable: ${byGrade}`;
 
 mkdirSync(outDir, { recursive: true });
 cpSync(join(here, 'app'), join(outDir, 'app'), { recursive: true });
@@ -25,4 +78,5 @@ if (existsSync(join(here, 'screenshots'))) cpSync(join(here, 'screenshots'), joi
 
 const caps = { text_max_bytes: 163840, screenshots: { max: 4, max_bytes: 262144 }, app_max_files: 993, app_max_bytes: 50331648 };
 writeFileSync(join(outDir, 'dossier.json'), buildDossier(outDir, caps));
-console.log(`handed in ${data.trophies.length} trophies to ${outDir}`);
+console.log(`handed in ${trophies.length} trophies to ${outDir}`);
+console.log(`summary: ${summary}`);

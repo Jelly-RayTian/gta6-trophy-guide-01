@@ -16,5 +16,8 @@ An offline, dependency-free guide and tracker for all 55 official GTA VI PS5 tro
 ```
 node serve.ts          # http://localhost:8080
 MAKEFUN_OUTPUT_DIR=out node main.ts   # stage app/, screenshots/ and dossier.json
-node tools/build-data.mjs             # regenerate app/data/*.json from the authored guide data
 ```
+
+## Data
+
+`app/data/trophies.json` and `app/data/roadmap.json` are maintained directly: edit them by hand, there is no generator step. Each trophy needs `name`, `description`, `grade`, `guide` and `source`; `main.ts` refuses to stage the app if a data file is missing or a trophy lacks one of those. Roadmap stages refer to trophies by exact `name`.
