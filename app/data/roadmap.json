@@ -1,126 +1,16 @@
 {
  "intro": "Order built from the official trophy descriptions only. The list does not give mission order, so named missions are grouped, not sequenced.",
  "stages": [
-  {
-   "title": "1. Prologue",
-   "note": "The opening mission.",
-   "trophies": [
-    "Just Like Paradise"
-   ]
-  },
-  {
-   "title": "2. Story chapters 1 to 4",
-   "note": "Chapter trophies, in chapter order.",
-   "trophies": [
-    "Paradise Lost",
-    "T**s Ass Drug Money",
-    "Vice City, Baby!",
-    "Top Of The World, Ma"
-   ]
-  },
-  {
-   "title": "3. Named story missions",
-   "note": "These land inside the chapters; do them as the story offers them.",
-   "trophies": [
-    "Trust",
-    "Break the Bank",
-    "Family Matters",
-    "DWNFALL",
-    "Hi-Jacked",
-    "Snow Storm"
-   ]
-  },
-  {
-   "title": "4. Story choices and strange events",
-   "note": "Missable and cryptic: save before big decisions.",
-   "trophies": [
-    "Actions Speak Louder",
-    "Bad Luck, I Guess",
-    "The Truth Is Out There",
-    "Personal Best"
-   ]
-  },
-  {
-   "title": "5. Character strands and strangers",
-   "note": "Finish each strand while it is open.",
-   "trophies": [
-    "Road to Rehabilitation",
-    "This Was No Boat Accident",
-    "The Lone Rider",
-    "Supply & Demand",
-    "Spin On This!",
-    "Strangers & Freaks",
-    "Fair Game"
-   ]
-  },
-  {
-   "title": "6. Story-linked one-offs",
-   "note": "Missable moments and partner trophies.",
-   "trophies": [
-    "In The Beginning…",
-    "Capital Offense",
-    "Let’s Go Bowling",
-    "Ten Pin",
-    "Catch Me If You Can",
-    "Challenging Tank",
-    "Hot Together",
-    "Retail Therapy"
-   ]
-  },
-  {
-   "title": "7. Final mission",
-   "note": "The end of the main story, the second gold.",
-   "trophies": [
-    "You Gotta Know When to Get Off"
-   ]
-  },
-  {
-   "title": "8. Collectibles with counts",
-   "note": "Free-roam counts; use the counters.",
-   "trophies": [
-    "Positive Mental Attitude",
-    "Don't Touch My Deck",
-    "You WAiNKer!",
-    "Whip It Good",
-    "Cunning Stunts",
-    "The Goodtime State"
-   ]
-  },
-  {
-   "title": "9. Activities",
-   "note": "Variety, medals, races and wins.",
-   "trophies": [
-    "Master of None",
-    "The Shootist",
-    "Top Fun",
-    "Earn Cash, Not Kudos",
-    "Baited My Tackle",
-    "Stick Fiddler",
-    "One Last Thing",
-    "Gunslinger"
-   ]
-  },
-  {
-   "title": "10. Crime and money",
-   "note": "Robberies and totals.",
-   "trophies": [
-    "Sneakthief",
-    "Maximum Withdrawal",
-    "A Classic Blitz Play",
-    "Pest Control",
-    "Dime on the Dollar",
-    "Treat Yo Self",
-    "Little Boxes",
-    "On the Spot"
-   ]
-  },
-  {
-   "title": "11. Cleanup and platinum",
-   "note": "100% completion, then the platinum.",
-   "trophies": [
-    "A Long Road",
-    "Vice Got a Price!"
-   ]
-  }
+{"title": "1. Prologue", "note": "The opening mission.", "trophies": ["Just Like Paradise"]},
+{"title": "2. Story chapters 1 to 4", "note": "Chapter trophies, in chapter order.", "trophies": ["Paradise Lost", "T**s Ass Drug Money", "Vice City, Baby!", "Top Of The World, Ma"]},
+{"title": "3. Named story missions", "note": "These land inside the chapters; do them as the story offers them.", "trophies": ["Trust", "Break the Bank", "Family Matters", "DWNFALL", "Hi-Jacked", "Snow Storm"]},
+{"title": "4. Story choices and strange events", "note": "Missable and cryptic: save before big decisions.", "trophies": ["Actions Speak Louder", "Bad Luck, I Guess", "The Truth Is Out There", "Personal Best"]},
+{"title": "5. Character strands and strangers", "note": "Finish each strand while it is open.", "trophies": ["Road to Rehabilitation", "This Was No Boat Accident", "The Lone Rider", "Supply & Demand", "Spin On This!", "Strangers & Freaks", "Fair Game"]},
+{"title": "6. Story-linked one-offs", "note": "Missable moments and partner trophies.", "trophies": ["In The Beginning…", "Capital Offense", "Let’s Go Bowling", "Ten Pin", "Catch Me If You Can", "Challenging Tank", "Hot Together", "Retail Therapy"]},
+{"title": "7. Final mission", "note": "The end of the main story, the second gold.", "trophies": ["You Gotta Know When to Get Off"]},
+{"title": "8. Collectibles with counts", "note": "Free-roam counts; use the counters.", "trophies": ["Positive Mental Attitude", "Don't Touch My Deck", "You WAiNKer!", "Whip It Good", "Cunning Stunts", "The Goodtime State"]},
+{"title": "9. Activities", "note": "Variety, medals, races and wins.", "trophies": ["Master of None", "The Shootist", "Top Fun", "Earn Cash, Not Kudos", "Baited My Tackle", "Stick Fiddler", "One Last Thing", "Gunslinger"]},
+{"title": "10. Crime and money", "note": "Robberies and totals.", "trophies": ["Sneakthief", "Maximum Withdrawal", "A Classic Blitz Play", "Pest Control", "Dime on the Dollar", "Treat Yo Self", "Little Boxes", "On the Spot"]},
+{"title": "11. Cleanup and platinum", "note": "100% completion, then the platinum.", "trophies": ["A Long Road", "Vice Got a Price!"]}
  ]
 }
