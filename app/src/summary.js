@@ -10,5 +10,5 @@ export function renderSummary(el, trophies) {
     return `<span class="pill g-${g}" style="border-color:currentColor">${g} ${n}/${all.length}</span>`;
   }).join(' ');
   el.innerHTML = `<span class="big">${done.length}/${trophies.length} · ${pct}%</span>
-    <div class="bar" role="progressbar" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><i style="width:${pct}%"></i></div>${grades}`;
+    <div class="bar" role="progressbar" aria-label="Trophies earned" aria-valuenow="${pct}" aria-valuemin="0" aria-valuemax="100"><i style="width:${pct}%"></i></div>${grades}`;
 }
